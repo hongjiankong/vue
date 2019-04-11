@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+    <style>
+        .bg {
+            color: red;
+        }
+    </style>
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+</head>
+
+<body>
+    <div class="bg" v-bind:id="div1">
+        <div>
+            hello world!!
+        </div>
+        {{msg}}
+        <div :id="div2">
+            {{count}}
+        </div>
+        <hr>
+        {{(count+1)*10}}
+        <div v-html="html"></div>
+        <a target="blank" v-bind:href="baidu">百度</a>
+        <a target="blank" :href="muke">慕课</a>
+        <hr>
+        <input type="button" value="我是按钮！" v-on:click="handle(1)" />
+        <input type="button" value="我是按钮！" @click="handle(2)" />
+    </div>
+    <script type="text/javascript">
+        new Vue({
+            el: ".bg",
+            data: {
+                msg: "hello vue!!",
+                count: 0,
+                baidu: "http://www.baidu.com",
+                muke: "https://www.imooc.com",
+                html: "<div>Hello html!!</div>",
+                div1: "div1111",
+                div2: "div2222",
+            },
+            methods: {
+                handle: function (obj) {
+                    this.count+=obj;
+                }
+            },
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>index2</title>
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+
+</head>
+
+<body>
+    <div class="bg">
+        <p>
+            {{msg}}
+        </p>
+        <hr>
+        <p>{{msg1}}</p>
+    </div>
+    <script>
+        var arr = "123";
+        var app = new Vue({
+            el: ".bg",
+            data: {
+                msg: "hello vue!!!",
+                msg2: " I love you!!!"
+            },
+            watch: {
+                msg: function (newvalue, oldvalue) {
+                    console.log("newvalue:" + newvalue);
+                    console.log("oldvalue:" + oldvalue);
+                }
+            },
+            computed: {
+                msg1: function () {
+                    return "computed:" + this.msg + this.msg2 + arr
+                }
+
+            }
+        })
+    </script>
+</body>
+
+</html>
