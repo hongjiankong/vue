@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+</head>
+
+<body>
+
+
+    <hr>
+    <div id="app">
+
+        <div id="app">{{msg}} </div>
+        <hr>
+        <hr>
+        <ul>
+
+            <li v-for="item in list">
+                <div v-if="item%2==0" :style="style1" :class="['c1','c2',{'ac':item>3}]">
+                    这是偶数{{item}}
+                </div>
+                <div v-else-if="item>3">
+                    这是****{{item}}
+                </div>
+                <div v-else>
+                    这是奇数{{item}}
+                </div>
+            </li>
+        </ul>
+
+        <div v-for="(item, index) in list2" :key="index" :name="item.name" :id="item.age">
+            <div v-show="item.age%2==0">
+                {{item.name}}
+            </div>
+        </div>
+    </div>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                msg: "Hello vue 02!!!",
+                list: [1, 2, 3, 4, 5],
+                list2: [
+                    { name: "AAA", age: 12 },
+                    { name: "BBB", age: 22 },
+                    { name: "CCC", age: 33 },
+                    { name: "DDD", age: 44 },
+                    { name: "EEE", age: 55 },
+                ],
+                style1: {
+                    color: 'red'
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
