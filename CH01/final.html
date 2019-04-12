@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Final</title>
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{msg}} </p>
+        <p>{{msg2}} </p>
+        <p>{{(count+1)*10}} </p>
+        <a v-bind:href="link">Baidu</a>
+        <a :href="link">Baidu</a>
+        <button v-on:click="handle()">I'm a button</button>
+        <button @click="handle()">I'm a button</button>
+        <div v-html="tmp"></div>
+        <hr>
+    </div>
+    <script>
+        var arr="Ting";
+        var app = new Vue({
+            el: "#app",
+            data: {
+                msg: "hello vue!!!",
+                count: 1,
+                link: "http://www.baidu.com",
+                tmp: "<div>I am a template!!!</div>",
+                msg1: "hello world!!!"
+            },
+            methods: {
+                handle: function () {
+                    this.count += 1
+
+                }
+            },
+            watch: {
+                msg: function (nVal, oVal) {
+                    console.info("New Value:" + nVal);
+                    console.info("Old Value:" + oVal);
+                }
+            },
+            computed: {
+                msg2: function () {
+
+                    return "Computed:" + this.msg+"---"+this.msg1+"---"+arr
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>
